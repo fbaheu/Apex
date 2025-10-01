@@ -14,8 +14,9 @@
     }
   },
   "scripts": {
+    "build": "tsdown",
     "lint": "eslint .",
-    "build": "tsdown"
+    "tsc": "tsc"
   },
   "dependencies": {
     "slate": "^0.118.1",

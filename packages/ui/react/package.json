@@ -22,9 +22,10 @@
     }
   },
   "scripts": {
-    "prepare": "panda codegen",
+    "build": "tsdown",
     "lint": "eslint .",
-    "build": "tsdown"
+    "prepare": "panda codegen",
+    "tsc": "tsc"
   },
   "dependencies": {
     "@base-ui-components/react": "1.0.0-beta.2",

@@ -22,8 +22,9 @@
     }
   },
   "scripts": {
+    "build": "tsdown",
     "lint": "eslint .",
-    "build": "tsdown"
+    "tsc": "tsc"
   },
   "dependencies": {
     "@apex/throw-less": "workspace:",

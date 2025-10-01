@@ -8,21 +8,17 @@
     "directory": "packages/ui/preset"
   },
   "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
-    }
+    ".": "./src/index.ts"
   },
   "scripts": {
     "lint": "eslint .",
-    "build": "tsdown"
+    "tsc": "tsc"
   },
   "devDependencies": {
     "@apex/eslint-config": "workspace:",
     "@apex/typescript-config": "workspace:",
     "@pandacss/dev": "catalog:preprocessor-css",
     "@types/node": "catalog:types",
-    "eslint": "catalog:linter",
-    "tsdown": "catalog:bundling"
+    "eslint": "catalog:linter"
   }
 }

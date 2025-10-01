@@ -2,6 +2,10 @@
   "private": true,
   "name": "@apex/workspace",
   "license": "GPL-3.0-or-later",
+  "scripts": {
+    "tsc:all": "pnpm --stream --parallel --aggregate-output run tsc",
+    "lint:all": "pnpm --stream --parallel --aggregate-output run lint"
+  },
   "devDependencies": {
     "husky": "^9.1.7"
   }

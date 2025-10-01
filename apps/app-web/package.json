@@ -13,6 +13,7 @@
     "build": "vite build && tsc --noEmit",
     "dev": "vite",
     "lint": "eslint .",
+    "tsc": "tsc",
     "serve": "vite preview",
     "start": "vite"
   },

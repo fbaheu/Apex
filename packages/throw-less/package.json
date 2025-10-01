@@ -14,8 +14,9 @@
     }
   },
   "scripts": {
+    "build": "tsdown",
     "lint": "eslint .",
-    "build": "tsdown"
+    "tsc": "tsc"
   },
   "devDependencies": {
     "@apex/eslint-config": "workspace:",

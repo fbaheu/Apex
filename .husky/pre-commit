@@ -1,1 +1,9 @@
-pnpm test
+echo 🛠️ Start checking pre-commit phase.
+
+echo 🧠 Running Type Checking...
+pnpm run tsc:all
+
+echo 🏗️ Running Linter...
+pnpm run lint:all
+
+echo 🌟 All checks have been completed, everything seems good 🎉🚀
