@@ -1,0 +1,22 @@
+{
+  "name": "@apex/eslint-config",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fbaheu/Apex",
+    "directory": "config/eslint-config"
+  },
+  "exports": {
+    "./base": "./base.js",
+    "./react": "./react.js"
+  },
+  "devDependencies": {
+    "@typescript-eslint/parser": "catalog:linter"
+  },
+  "peerDependencies": {
+    "eslint": "catalog:linter",
+    "@stylistic/eslint-plugin": "catalog:linter"
+  }
+}

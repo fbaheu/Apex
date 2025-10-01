@@ -1,0 +1,51 @@
+{
+  "name": "@apex/react",
+  "version": "1.0.0",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fbaheu/Apex",
+    "directory": "packages/ui/react"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./components/*": {
+      "import": "./dist/components/*/index.js",
+      "types": "./dist/components/*/index.d.ts"
+    },
+    "./hooks/*": {
+      "import": "./dist/hooks/*/index.js",
+      "types": "./dist/hooks/*/index.d.ts"
+    }
+  },
+  "scripts": {
+    "prepare": "panda codegen",
+    "lint": "eslint .",
+    "build": "tsdown"
+  },
+  "dependencies": {
+    "@base-ui-components/react": "1.0.0-beta.2",
+    "@hugeicons/react": "catalog:icons"
+  },
+  "devDependencies": {
+    "@apex/eslint-config": "workspace:",
+    "@apex/typescript-config": "workspace:",
+    "@apex/design-system": "workspace:",
+    "@apex/preset-ui": "workspace:",
+    "@pandacss/dev": "catalog:preprocessor-css",
+    "@types/node": "catalog:types",
+    "@types/react": "catalog:types",
+    "@types/react-dom": "catalog:types",
+    "eslint": "catalog:linter",
+    "tsdown": "catalog:bundling"
+  },
+  "peerDependencies": {
+    "@apex/design-system": "workspace:",
+    "@tanstack/react-router": "catalog:tanstack",
+    "react": "catalog:react",
+    "react-dom": "catalog:react"
+  }
+}

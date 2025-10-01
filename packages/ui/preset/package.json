@@ -1,0 +1,28 @@
+{
+  "name": "@apex/preset-ui",
+  "version": "1.0.0",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fbaheu/Apex",
+    "directory": "packages/ui/preset"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "build": "tsdown"
+  },
+  "devDependencies": {
+    "@apex/eslint-config": "workspace:",
+    "@apex/typescript-config": "workspace:",
+    "@pandacss/dev": "catalog:preprocessor-css",
+    "@types/node": "catalog:types",
+    "eslint": "catalog:linter",
+    "tsdown": "catalog:bundling"
+  }
+}

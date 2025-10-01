@@ -1,0 +1,32 @@
+{
+  "name": "@apex/plugin-indexeddb-storage",
+  "version": "1.0.0",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fbaheu/Apex",
+    "directory": "plugins/plugin-indexeddb-storage"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "build": "tsdown"
+  },
+  "dependencies": {
+    "@apex/core": "workspace:",
+    "@apex/throw-less": "workspace:",
+    "dexie": "^4.2.0"
+  },
+  "devDependencies": {
+    "@apex/eslint-config": "workspace:",
+    "@apex/typescript-config": "workspace:",
+    "@types/node": "catalog:types",
+    "eslint": "catalog:linter",
+    "tsdown": "catalog:bundling"
+  }
+}

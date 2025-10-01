@@ -1,6 +1,7 @@
 {
-  "author": "",
-  "license": "ISC",
+  "private": true,
+  "name": "@apex/workspace",
+  "license": "GPL-3.0-or-later",
   "devDependencies": {
     "husky": "^9.1.7"
   }

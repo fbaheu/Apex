@@ -31,10 +31,10 @@ build
 vite.config.ts.timestamp*
 
 ### [DEV] CSS PREPROCESSOR (PandaCSS) ###
-packages/design-system/*
-!packages/design-system/package.json
-!packages/design-system/README.md
-!packages/design-system/tsconfig.json
+packages/ui/design-system/*
+!packages/ui/design-system/package.json
+!packages/ui/design-system/README.md
+!packages/ui/design-system/tsconfig.json
 
 ### [DEV] Testing ###
 coverage

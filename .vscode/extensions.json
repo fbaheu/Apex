@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "arktypeio.arkdark",
+    "usernamehw.errorlens",
+    "dbaeumer.vscode-eslint",
+    "antfu.pnpm-catalog-lens",
+    "yoavbls.pretty-ts-errors"
+  ]
+}

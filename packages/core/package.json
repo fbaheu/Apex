@@ -1,0 +1,40 @@
+{
+  "name": "@apex/core",
+  "version": "1.0.0",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fbaheu/Apex",
+    "directory": "packages/core"
+  },
+  "exports": {
+    "./*": {
+      "import": "./dist/*.js",
+      "types": "./dist/*.d.ts"
+    },
+    "./storage": {
+      "import": "./dist/storage/index.js",
+      "types": "./dist/storage/index.d.ts"
+    },
+    "./collections": {
+      "import": "./dist/collections/index.js",
+      "types": "./dist/collections/index.d.ts"
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "build": "tsdown"
+  },
+  "dependencies": {
+    "@apex/throw-less": "workspace:",
+    "arktype": "^2.1.20",
+    "nanoid": "^5.1.5"
+  },
+  "devDependencies": {
+    "@apex/eslint-config": "workspace:",
+    "@apex/typescript-config": "workspace:",
+    "@types/node": "catalog:types",
+    "eslint": "catalog:linter",
+    "tsdown": "catalog:bundling"
+  }
+}
