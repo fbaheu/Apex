@@ -18,7 +18,7 @@ export const DocumentIdSchema = type(/^apx-[\w_-]{21}/);
  * @example
  * <caption>Example usage of **generateId** method.</caption>
  *
- * ````typescript jsx
+ * ````typescript tsx
  * const id = generateId();
  *
  * console.log(id), // 'apx-CfY7_ZPeRSMJ8ZM0rTd3A'
@@ -35,7 +35,7 @@ export function generateId(): string {
  * @example
  * <caption>Example usage of **isDocumentId** method.</caption>
  *
- * ```typescript jsx
+ * ```typescript tsx
  * const id = 'apx-CfY7_ZPeRSMJ8ZM0rTd3A';
  * const notId = 'CfY7_ZPeRSMJ8ZM0rTd3A';
  *
@@ -49,7 +49,7 @@ export function isDocumentId(
 ): documentId is DocumentId {
   const out = DocumentIdSchema(documentId);
 
-  if (out instanceof type.errors) {
+  if (out instanceof Error) {
     return false;
   }
 

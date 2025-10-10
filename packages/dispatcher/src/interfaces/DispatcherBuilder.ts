@@ -25,6 +25,6 @@ export type DispatcherBuilder<Actions = object> = {
         ? Rest
         : []
     // @ts-expect-error - Can't satisfy Callable since Actions is 'object'
-    ): CallableTupleResult<ReturnType<Actions[ActionName]>>;
+    ): ReturnType<Actions[ActionName]>;
   };
 };

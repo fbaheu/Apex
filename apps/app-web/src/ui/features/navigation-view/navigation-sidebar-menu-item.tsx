@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Link } from '@apex/react/components/link';
-import { Icon, type IconSVGElement } from '@apex/react/components/icon';
-import { Span } from '@apex/react/components/styled-semantic-tag';
+import { Link } from '@apex/react/link';
+import { Icon, type IconSVGElement } from '@apex/react/icon';
+import { Span } from '@apex/react/styled-semantic-tag';
 
 /**
  * INTERFACE
@@ -19,7 +19,7 @@ export interface NavigationSidebarMenuItemProps {
  * @example
  * <caption>Example usage of **NavigationSidebarMenu** component.</caption>
  *
- * ```typescript jsx
+ * ```typescript tsx
  * const MyComponent = () => {
  *  return (
  *    <NavigationSidebarMenu  />
@@ -35,6 +35,7 @@ export const NavigationSidebarMenuItem: React.FunctionComponent<Readonly<Navigat
       gap="4"
       py="1.5"
       w="full"
+      color="text.tertiary"
       borderRadius="sm"
       alignItems="center"
       flexDirection="row"
@@ -43,7 +44,7 @@ export const NavigationSidebarMenuItem: React.FunctionComponent<Readonly<Navigat
       to="/$categoryId/$noteId"
       id="navigation-sidebar-menu-item"
       preload={false}
-      activeProps={{ "data-active": "true" }}
+      activeProps={{ 'data-active': 'true' }}
       _hover={{
         bgColor: 'bg.muted',
       }}
@@ -52,14 +53,17 @@ export const NavigationSidebarMenuItem: React.FunctionComponent<Readonly<Navigat
       }}
       params={({ noteId }) => ({ categoryId: category, noteId: noteId ?? '' })}
     >
-     {({ isActive }) => (
-      <React.Fragment>
-        <Span color="text.tertiary">
-          <Icon size="sm" icon={icon} />
-        </Span>
-        {label}
-      </React.Fragment>
-     )}
+      {({ isActive }) => (
+        <React.Fragment>
+          <Span color="text.tertiary">
+            <Icon
+              size="sm"
+              icon={icon}
+            />
+          </Span>
+          {label}
+        </React.Fragment>
+      )}
     </Link>
   );
 };

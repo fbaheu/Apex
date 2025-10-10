@@ -10,7 +10,7 @@ import { spacing } from '~themes/tokens/spacing';
 import { easings } from '~themes/tokens/easings';
 import { durations } from '~themes/tokens/durations';
 
-import { sageTokensColor } from '~colors/sage';
+import { neutralTokensColor } from '~colors/neutral';
 import { baseColors } from '~themes/tokens/base-colors';
 
 import { fonts, fontSizes, fontWeights, lineHeights, letterSpacings } from '~themes/tokens/typography';
@@ -31,9 +31,10 @@ export const tokens = defineTokens({
 
   easings,
   durations,
+  animations: {},
 
   colors: {
     ...baseColors,
-    neutral: sageTokensColor,
+    neutral: neutralTokensColor,
   }
 });

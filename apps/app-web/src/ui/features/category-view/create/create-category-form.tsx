@@ -3,17 +3,22 @@ import { useForm } from 'react-hook-form';
 import { arktypeResolver } from '@hookform/resolvers/arktype';
 
 import { useDispatcher } from '@apex/dispatcher';
-import { CategorySchema, type Category, type BaseDocumentAttributes } from '@apex/core/collections';
+import { CategorySchema, type Category, type WithAttributesAndId } from '@apex/core/collections';
 
+import { Button } from '@apex/react/button';
 import { HStack, VStack } from '@apex/design-system/jsx';
-import { Button } from '@apex/react/components/button';
-import { Form } from '@apex/react/components/styled-semantic-tag';
+import { Form } from '@apex/react/styled-semantic-tag';
+
+/**
+ * INTERFACE
+ */
+type CategoryCreationForm = Omit<Category, keyof WithAttributesAndId>;
 
 export const CreateCategoryForm: React.FunctionComponent = () => {
   // [HOOK] useDispatcher - Event dispatcher for category creation
   const { dispatch } = useDispatcher();
   // [HOOK] useForm - State of un-created category
-  const { handleSubmit, register, formState } = useForm<Omit<Category, keyof BaseDocumentAttributes | 'id'>>({
+  const { handleSubmit, register, formState } = useForm<CategoryCreationForm>({
     resolver: arktypeResolver(CategorySchema)
   });
 

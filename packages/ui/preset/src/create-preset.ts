@@ -13,6 +13,10 @@ export function createPreset() {
 
     globalCss,
 
+    conditions: {
+      open: '&:is([open], [data-open], [data-state="open"], [data-popup-open], :popover-open)',
+    },
+
     theme: {
       extend: {
         breakpoints,

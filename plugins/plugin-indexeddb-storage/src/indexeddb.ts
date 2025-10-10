@@ -1,10 +1,10 @@
-import Dexie, { UpdateSpec } from 'dexie';
+import Dexie, { type UpdateSpec } from 'dexie';
 
 import type { Collection, Storage } from '@apex/core/storage';
 import { NOTE_COLLECTION_NAME } from '@apex/core/collections/note';
 import { CATEGORY_COLLECTION_NAME } from '@apex/core/collections/category';
-import { fail, fromThrowable, success, ThrowLess } from '@apex/throw-less';
-import { BaseDocumentAttributesWithId, DocumentId, generateId, isDocumentId } from '@apex/core/collections';
+import { fail, fromThrowable, success, type ThrowLess } from '@apex/throw-less';
+import { generateId, isDocumentId, type WithAttributesAndId, type DocumentId } from '@apex/core/collections';
 
 /**
  * [STORAGE] Indexeddb
@@ -12,7 +12,7 @@ import { BaseDocumentAttributesWithId, DocumentId, generateId, isDocumentId } fr
  * @example
  * <caption>Example usage of **Storage** method.</caption>
  *
- * ````typescript jsx
+ * ````typescript tsx
  * const storage = Indexeddb;
  *
  * storage.create(CATEGORY_COLLECTION_NAME, { ... });
@@ -30,7 +30,7 @@ export default new (class Indexeddb implements Storage {
     });
   }
 
-  async create<Document extends BaseDocumentAttributesWithId>(collection: Collection, document: Omit<Document, keyof BaseDocumentAttributesWithId>): Promise<ThrowLess<Error, Document>> {
+  async create<Document extends WithAttributesAndId>(collection: Collection, document: Omit<Document, keyof WithAttributesAndId>): Promise<ThrowLess<Error, Document>> {
     if (!collection) {
       return fail<Error, Document>(new Error('TODO'));
     }
@@ -54,7 +54,7 @@ export default new (class Indexeddb implements Storage {
     return fail<Error, Document>(new Error('TODO'));
   }
 
-  async one<Document extends BaseDocumentAttributesWithId>(collection: Collection, documentId: DocumentId): Promise<ThrowLess<Error, Document>> {
+  async one<Document extends WithAttributesAndId>(collection: Collection, documentId: DocumentId): Promise<ThrowLess<Error, Document>> {
     if (!collection) {
       return fail<Error, Document>(new Error('TODO'));
     }
@@ -77,7 +77,7 @@ export default new (class Indexeddb implements Storage {
     return fail<Error, Document>(new Error('TODO'));
   }
 
-  async all<Document extends BaseDocumentAttributesWithId>(collection: Collection): Promise<ThrowLess<Error, Array<Document>>> {
+  async all<Document extends WithAttributesAndId>(collection: Collection): Promise<ThrowLess<Error, Array<Document>>> {
     if (!collection) {
       return fail<Error, Array<Document>>(new Error('TODO'));
     }
@@ -92,7 +92,7 @@ export default new (class Indexeddb implements Storage {
     return fail<Error, Array<Document>>(new Error('TODO'));
   }
 
-  async update<Document extends BaseDocumentAttributesWithId>(collection: Collection, documentId: DocumentId, patch: Partial<Document>): Promise<ThrowLess<Error, Document>> {
+  async update<Document extends WithAttributesAndId>(collection: Collection, documentId: DocumentId, patch: Partial<Document>): Promise<ThrowLess<Error, Document>> {
     if (!collection) {
       return fail<Error, Document>(new Error('TODO'));
     }
@@ -128,7 +128,7 @@ export default new (class Indexeddb implements Storage {
     return fail<Error, Document>(new Error('TODO'));
   }
 
-  async archive<Document extends BaseDocumentAttributesWithId>(collection: Collection, documentId: DocumentId): Promise<ThrowLess<Error, Document>> {
+  async archive<Document extends WithAttributesAndId>(collection: Collection, documentId: DocumentId): Promise<ThrowLess<Error, Document>> {
     if (!collection) {
       return fail<Error, Document>(new Error('TODO'));
     }
@@ -143,7 +143,7 @@ export default new (class Indexeddb implements Storage {
     } as Partial<Document>);
   }
 
-  async unarchive<Document extends BaseDocumentAttributesWithId>(collection: Collection, documentId: DocumentId): Promise<ThrowLess<Error, Document>> {
+  async unarchive<Document extends WithAttributesAndId>(collection: Collection, documentId: DocumentId): Promise<ThrowLess<Error, Document>> {
     if (!collection) {
       return fail<Error, Document>(new Error('TODO'));
     }
@@ -171,7 +171,7 @@ export default new (class Indexeddb implements Storage {
     } as Partial<Document>);
   }
 
-  async remove<Document extends BaseDocumentAttributesWithId>(collection: Collection, documentId: DocumentId): Promise<ThrowLess<Error, true>> {
+  async remove<Document extends WithAttributesAndId>(collection: Collection, documentId: DocumentId): Promise<ThrowLess<Error, true>> {
     if (!collection) {
       return fail<Error, true>(new Error('TODO'));
     }

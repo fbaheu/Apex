@@ -8,17 +8,17 @@
     "directory": "packages/ui/react"
   },
   "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
-    },
-    "./components/*": {
+    "./*": {
       "import": "./dist/components/*/index.js",
       "types": "./dist/components/*/index.d.ts"
     },
     "./hooks/*": {
       "import": "./dist/hooks/*/index.js",
       "types": "./dist/hooks/*/index.d.ts"
+    },
+    "./utils/*": {
+      "import": "./dist/utils/*/index.js",
+      "types": "./dist/utils/*/index.d.ts"
     }
   },
   "scripts": {
@@ -36,6 +36,7 @@
     "@apex/typescript-config": "workspace:",
     "@apex/design-system": "workspace:",
     "@apex/preset-ui": "workspace:",
+    "@hugeicons/core-free-icons": "catalog:icons",
     "@pandacss/dev": "catalog:preprocessor-css",
     "@types/node": "catalog:types",
     "@types/react": "catalog:types",

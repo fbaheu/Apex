@@ -1,4 +1,4 @@
-import { Fn } from '~interfaces';
+import type { Fn } from '~interfaces';
 
 /**
  * [SHARED] isFn

@@ -6,7 +6,7 @@ import { styled } from '@apex/design-system/jsx';
  * @example
  * <caption>Example usage of **InlineCode** component.</caption>
  *
- * ```typescript jsx
+ * ```typescript tsx
  * const MyComponent = () => { *
  *  return (
  *    <InlineCode>

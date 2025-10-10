@@ -1,9 +1,9 @@
 import { type } from 'arktype';
 
-import { Prettify } from '~interfaces';
+import type { Prettify } from '~interfaces';
 
 import { DocumentIdSchema, generateId } from './document-id';
-import { BaseDocumentAttributesWithId } from './base-document-attributes';
+import type { WithAttributesAndId } from './base-document-attributes';
 
 /**
  * CONSTANT
@@ -15,7 +15,7 @@ export const CATEGORY_COLLECTION_NAME = 'category';
  */
 export type BaseCategory = typeof CategorySchema.infer;
 
-export type Category = Prettify<BaseCategory & BaseDocumentAttributesWithId>;
+export type Category = Prettify<WithAttributesAndId<BaseCategory>>;
 
 /**
  * [SCHEMA] CategorySchema

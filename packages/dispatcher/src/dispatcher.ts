@@ -2,7 +2,7 @@ import { fail, fromThrowable } from '@apex/throw-less';
 import IndexeddbPlugin from '@apex/plugin-indexeddb-storage';
 
 import { isFn } from '~utils/is-fn';
-import { Fn, DispatcherBuilder, DispatchContext } from '~interfaces';
+import type { Fn, DispatcherBuilder, DispatchContext } from '~interfaces';
 
 /**
  * [UTILS] Dispatcher
@@ -50,7 +50,7 @@ export function Dispatcher(): DispatcherBuilder {
         throw new Error(`Action named '${action}' already exist.`);
       }
 
-      console.info(`Register '${action}' inside action store.`);
+      // console.info(`Register '${action}' inside action store.`);
 
       actionsStore.set(action, actionFn);
 
@@ -63,8 +63,7 @@ export function Dispatcher(): DispatcherBuilder {
      * <caption>See below ⬆️</caption>
      */
     useDispatcher() {
-      // TODO
-      // Good for now but should be more dynamic
+      // TODO: Good for now but should be more dynamic
       IndexeddbPlugin.init();
 
       return {
@@ -76,14 +75,14 @@ export function Dispatcher(): DispatcherBuilder {
          */
         dispatch(actionName, ...actionArgs) {
           if (!actionsStore.has(actionName)) {
-            console.warn(`No action named '${actionName}' were found.`);
+            // console.warn(`No action named '${actionName}' were found.`);
             return fail();
           }
 
           const actionFn = actionsStore.get(actionName);
 
           if (!actionFn) {
-            console.warn(`No action named '${actionName}' were found.`);
+            // console.warn(`No action named '${actionName}' were found.`);
             return fail();
           }
 
@@ -91,7 +90,7 @@ export function Dispatcher(): DispatcherBuilder {
             db: IndexeddbPlugin,
           };
 
-          return fromThrowable(() => actionFn(ctx, ...actionArgs));
+          return actionFn(ctx, ...actionArgs);
         },
       };
     },

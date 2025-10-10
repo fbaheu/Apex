@@ -1,6 +1,7 @@
 import { NavigationSidebarView } from './navigation-sidebar-view';
 import { NavigationSidebarMenu } from './navigation-sidebar-menu';
 import { NavigationSidebarHeader } from './navigation-sidebar-header';
+import { NavigationSidebarCategories } from './navigation-sidebar-categories';
 
 /**
  * [COMPONENT] NavigationSidebar
@@ -8,7 +9,7 @@ import { NavigationSidebarHeader } from './navigation-sidebar-header';
  * @example
  * <caption>Example usage of **NavigationSidebar** component.</caption>
  *
- * ```typescript jsx
+ * ```typescript tsx
  * const MyComponent = () => {
  *  return (
  *    <NavigationSidebar>
@@ -23,4 +24,5 @@ import { NavigationSidebarHeader } from './navigation-sidebar-header';
 export const NavigationSidebar = Object.assign(NavigationSidebarView, {
   Menu: NavigationSidebarMenu,
   Header: NavigationSidebarHeader,
+  Categories: NavigationSidebarCategories
 });

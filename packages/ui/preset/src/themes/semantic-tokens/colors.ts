@@ -2,7 +2,7 @@ import { defineSemanticTokens } from '@pandacss/dev';
 
 export const colors = defineSemanticTokens.colors({
   bg: {
-    DEFAULT: { value: '{colors.white}' },
+    DEFAULT: { value: '{colors.bg.default}' },
     canvas: { value: '{colors.neutral.25}' },
     default: { value: '{colors.white}' },
     subtle: { value: '{colors.neutral.50}' },
@@ -18,6 +18,7 @@ export const colors = defineSemanticTokens.colors({
     subtle: { value: '{colors.neutral.700}' },
     disabled: { value: '{colors.neutral.600}' },
     placeholder: { value: '{colors.neutral.500}' },
+    reversed: { value: '{colors.white}' }
     // error: { value: { _light: '{colors.red.9}', _dark: '{colors.red.9}' } },
   },
 
@@ -28,14 +29,15 @@ export const colors = defineSemanticTokens.colors({
     tertiary: { value: '{colors.fg.subtle}' },
     disabled: { value: '{colors.fg.disabled}' },
     placeholder: { value: '{colors.fg.placeholder}' },
+    reversed: { value: '{colors.fg.reversed}' }
   },
 
   border: {
     DEFAULT: { value: '{colors.border.default}' },
-    default: { value: '{colors.neutral.400}' },
-    muted: { value: '{colors.neutral.300}' },
-    subtle: { value: '{colors.neutral.200}' },
-    disabled: { value: '{colors.neutral.150}' },
+    default: { value: '{colors.neutral.300}' },
+    muted: { value: '{colors.neutral.200}' },
+    subtle: { value: '{colors.neutral.150}' },
+    disabled: { value: '{colors.neutral.100}' },
     // outline: { value: { _light: '{colors.neutral.a9}', _dark: '{colors.neutral.a9}' } },
     // error: { value: { _light: '{colors.red.9}', _dark: '{colors.red.9}' } },
   },

@@ -6,7 +6,7 @@ import { styled } from '@apex/design-system/jsx';
  * @example
  * <caption>Example usage of **Kbd** component.</caption>
  *
- * ```typescript jsx
+ * ```typescript tsx
  * const MyComponent = () => { *
  *  return (
  *    <Kbd>

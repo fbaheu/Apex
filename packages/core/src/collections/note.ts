@@ -1,9 +1,9 @@
 import { type } from 'arktype';
 
-import { Prettify } from '~interfaces';
+import type { Prettify } from '~interfaces';
 
 import { DocumentIdSchema, generateId } from './document-id';
-import { BaseDocumentAttributesWithId } from './base-document-attributes';
+import type { WithAttributesAndId } from './base-document-attributes';
 
 /**
  * CONSTANT
@@ -15,7 +15,7 @@ export const NOTE_COLLECTION_NAME = 'note';
  */
 export type BaseNote = typeof NoteSchema.infer;
 
-export type Note = Prettify<BaseNote & BaseDocumentAttributesWithId>;
+export type Note = Prettify<WithAttributesAndId<BaseNote>>;
 
 /**
  * [SCHEMA] NoteSchema

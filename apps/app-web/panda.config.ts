@@ -10,7 +10,8 @@ export default defineConfig({
   // Where to look for css declarations
   include: [
     './src/**/*.{ts,tsx}',
-    '../../packages/ui/react/**/*.{ts,tsx}'
+    '../../packages/ui/react/src/**/*.{ts,tsx}',
+    '../../packages/peak-editor/src/**/*.{ts,tsx}',
   ],
 
   // Files to exclude

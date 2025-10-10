@@ -20,7 +20,7 @@ type Callable = (...args: any) => any;
  * @example
  * <caption>Example usage of **useDebounce** hook.</caption>
  *
- * ```typescript jsx
+ * ```typescript tsx
  *  const Component = () => {
  *  const { wait, clear } = useDebounce();
  *

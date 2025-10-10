@@ -1,7 +1,7 @@
 import { success } from '@apex/throw-less';
 import { type Category, CATEGORY_COLLECTION_NAME } from '@apex/core/collections';
 
-import { DispatchContext } from '~interfaces';
+import type { DispatchContext } from '~interfaces';
 
 /**
  * [ACTION] fetchAllCategories
@@ -16,6 +16,10 @@ import { DispatchContext } from '~interfaces';
  */
 export async function fetchAllCategories(ctx: DispatchContext) {
   const result = await ctx.db.all<Category>(CATEGORY_COLLECTION_NAME);
+
+  if (result.isFail()) {
+    return success([]);
+  }
 
   if (result.isSuccess()) {
     // Do some shit here

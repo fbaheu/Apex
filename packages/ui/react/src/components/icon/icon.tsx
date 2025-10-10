@@ -1,10 +1,10 @@
-import { HugeiconsIcon, IconSvgElement } from '@hugeicons/react';
+import { HugeiconsIcon, type IconSvgElement } from '@hugeicons/react';
 
 /**
  * CONSTANTS
  */
 export const IconSize = {
-  xs: 14,
+  xs: 18,
   sm: 20,
   md: 24,
   lg: 28,
@@ -26,7 +26,7 @@ export interface IconProps extends React.ComponentProps<typeof HugeiconsIcon> {
  * @example
  * <caption>Example usage of **Icon** component.</caption>
  *
- * ```typescript jsx
+ * ```typescript tsx
  * const MyComponent = () => {
  *  return (
  *   <Icon size="sm" icon={ ... } />

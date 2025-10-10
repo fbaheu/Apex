@@ -1,4 +1,4 @@
-import { Fail, fail, success, Success, ThrowLess } from '~throw-less';
+import { Fail, fail, success, Success, type ThrowLess } from '~throw-less';
 
 /**
  * INTERFACE
@@ -98,7 +98,7 @@ export function fromThrowable<
 
     if (isPromise(result)) {
       result.then(resolved => isThrowLess(resolved) ? resolved : success(resolved))
-        .catch(rejected => fail(rejected));
+        .catch(rejected => isThrowLess(rejected) ? rejected : fail(rejected));
     }
 
     if (isThrowLess(result)) {

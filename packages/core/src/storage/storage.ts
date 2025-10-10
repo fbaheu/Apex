@@ -1,6 +1,6 @@
 import type { ThrowLess } from '@apex/throw-less';
 
-import type { DocumentId, BaseDocumentAttributesWithId, NOTE_COLLECTION_NAME, CATEGORY_COLLECTION_NAME } from '~collections';
+import type { DocumentId, WithAttributesAndId, NOTE_COLLECTION_NAME, CATEGORY_COLLECTION_NAME } from '~collections';
 
 /**
  * INTERFACE
@@ -15,7 +15,7 @@ export type Collection
  * @example
  * <caption>Example usage of **Storage** method.</caption>
  *
- * ````typescript jsx
+ * ````typescript tsx
  * class MyDatabase implements Storage {
  *  ...
  * }
@@ -29,7 +29,7 @@ export interface Storage {
    * @example
    * <caption>Example usage of **init** method.</caption>
    *
-   * ````typescript jsx
+   * ````typescript tsx
    * init();
    * ```
    *
@@ -42,7 +42,7 @@ export interface Storage {
    * @example
    * <caption>Example usage of **create** method.</caption>
    *
-   * ````typescript jsx
+   * ````typescript tsx
    * const created = create('collection', { ... });
    *
    * if (created.isSuccess()) {
@@ -51,14 +51,14 @@ export interface Storage {
    * ```
    *
    */
-  create<Document extends BaseDocumentAttributesWithId>(collection: Collection, document: Omit<Document, keyof BaseDocumentAttributesWithId>): Promise<ThrowLess<Error, Document>>;
+  create<Document extends WithAttributesAndId>(collection: Collection, document: Omit<Document, keyof WithAttributesAndId>): Promise<ThrowLess<Error, Document>>;
   /**
    * [STORAGE] one
    * @description Retrieve an element inside a given collection.
    * @example
    * <caption>Example usage of **one** method.</caption>
    *
-   * ````typescript jsx
+   * ````typescript tsx
    * const document = one('collection', 'apx-CfY7_ZPeRSMJ8ZM0rTd3A');
    *
    * if (document.isSuccess()) {
@@ -67,14 +67,14 @@ export interface Storage {
    * ```
    *
    */
-  one<Document extends BaseDocumentAttributesWithId>(collection: Collection, documentId: DocumentId): Promise<ThrowLess<Error, Document>>;
+  one<Document extends WithAttributesAndId>(collection: Collection, documentId: DocumentId): Promise<ThrowLess<Error, Document>>;
   /**
    * [STORAGE] all
    * @description Retrieve all elements inside a given collection.
    * @example
    * <caption>Example usage of **all** method.</caption>
    *
-   * ````typescript jsx
+   * ````typescript tsx
    * const documents = one('collection');
    *
    * if (documents.isSuccess()) {
@@ -83,14 +83,14 @@ export interface Storage {
    * ```
    *
    */
-  all<Document extends BaseDocumentAttributesWithId>(collection: Collection): Promise<ThrowLess<Error, Array<Document>>>;
+  all<Document extends WithAttributesAndId>(collection: Collection): Promise<ThrowLess<Error, Array<Document>>>;
   /**
    * [STORAGE] update
    * @description Update a single elements from a given collection.
    * @example
    * <caption>Example usage of **update** method.</caption>
    *
-   * ````typescript jsx
+   * ````typescript tsx
    * const updated = update('collection', 'apx-CfY7_ZPeRSMJ8ZM0rTd3A', { ... });
    *
    * if (updated.isSuccess()) {
@@ -99,14 +99,14 @@ export interface Storage {
    * ```
    *
    */
-  update<Document extends BaseDocumentAttributesWithId>(collection: Collection, documentId: DocumentId, patch: Partial<Document>): Promise<ThrowLess<Error, Document>>;
+  update<Document extends WithAttributesAndId>(collection: Collection, documentId: DocumentId, patch: Partial<Document>): Promise<ThrowLess<Error, Document>>;
   /**
    * [STORAGE] archive
    * @description Archive a single elements from a given collection.
    * @example
    * <caption>Example usage of **archive** method.</caption>
    *
-   * ````typescript jsx
+   * ````typescript tsx
    * const archived = archive('collection', 'apx-CfY7_ZPeRSMJ8ZM0rTd3A');
    *
    * if (archived.isSuccess()) {
@@ -115,14 +115,14 @@ export interface Storage {
    * ```
    *
    */
-  archive<Document extends BaseDocumentAttributesWithId>(collection: Collection, documentId: DocumentId): Promise<ThrowLess<Error, Document>>;
+  archive<Document extends WithAttributesAndId>(collection: Collection, documentId: DocumentId): Promise<ThrowLess<Error, Document>>;
   /**
    * [STORAGE] unarchive
    * @description Unarchive a single elements from a given collection. The document must be archived before being able to unarchived.
    * @example
    * <caption>Example usage of **unarchive** method.</caption>
    *
-   * ````typescript jsx
+   * ````typescript tsx
    * const unarhcived = unarchive('collection', 'apx-CfY7_ZPeRSMJ8ZM0rTd3A');
    *
    * if (unarhcived.isSuccess()) {
@@ -131,14 +131,14 @@ export interface Storage {
    * ```
    *
    */
-  unarchive<Document extends BaseDocumentAttributesWithId>(collection: Collection, documentId: DocumentId): Promise<ThrowLess<Error, Document>>;
+  unarchive<Document extends WithAttributesAndId>(collection: Collection, documentId: DocumentId): Promise<ThrowLess<Error, Document>>;
   /**
    * [STORAGE] remove
    * @description Remove a single elements from a given collection. The document must be unarchived before being able to remove.
    * @example
    * <caption>Example usage of **remove** method.</caption>
    *
-   * ````typescript jsx
+   * ````typescript tsx
    * const removed = remove('collection', 'apx-CfY7_ZPeRSMJ8ZM0rTd3A');
    *
    * if (removed.isSuccess()) {
@@ -147,5 +147,5 @@ export interface Storage {
    * ```
    *
    */
-  remove<Document extends BaseDocumentAttributesWithId>(collection: Collection, documentId: DocumentId): Promise<ThrowLess<Error, true>>;
+  remove<Document extends WithAttributesAndId>(collection: Collection, documentId: DocumentId): Promise<ThrowLess<Error, true>>;
 }

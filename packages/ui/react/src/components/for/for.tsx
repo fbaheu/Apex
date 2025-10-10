@@ -16,7 +16,7 @@ export interface ForProps<A extends Array<unknown>, E extends React.JSX.Element>
  * @example
  * <caption>Example usage of **For** component.</caption>
  *
- * ```typescript jsx
+ * ```typescript tsx
  * const MyComponent = () => {
  *  return (
  *   <For each={[1, 2, 3]}>

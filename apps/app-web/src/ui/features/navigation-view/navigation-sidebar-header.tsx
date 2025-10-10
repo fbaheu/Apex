@@ -8,7 +8,7 @@ import { HStack } from '@apex/design-system/jsx';
  * @example
  * <caption>Example usage of **NavigationSidebarHeader** component.</caption>
  *
- * ```typescript jsx
+ * ```typescript tsx
  * const MyComponent = () => {
  *  return (
  *    <NavigationSidebarHeader  />

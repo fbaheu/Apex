@@ -1,13 +1,13 @@
 import { type } from 'arktype';
 
-import { DocumentId } from './document-id';
+import type { DocumentId } from './document-id';
 
 /**
  * INTERFACE
  */
-export type BaseDocumentAttributes = typeof BaseDocumentAttributesSchema.infer;
+export type WithAttributes<T = {}> = T & typeof BaseDocumentAttributesSchema.infer;
 
-export type BaseDocumentAttributesWithId = BaseDocumentAttributes & { id: DocumentId };
+export type WithAttributesAndId<T = {}> = T & WithAttributes<{ id: DocumentId }>;
 
 /**
  * [SCHEMA] BaseDocumentSchema

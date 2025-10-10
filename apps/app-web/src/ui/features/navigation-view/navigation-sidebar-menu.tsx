@@ -1,7 +1,7 @@
 import React from 'react';
 import { Files01Icon, FavouriteIcon, Delete02Icon } from '@hugeicons/core-free-icons';
 
-import { For } from '@apex/react/components/for';
+import { For } from '@apex/react/for';
 import { VStack } from '@apex/design-system/jsx';
 
 import { NavigationSidebarMenuItem } from './navigation-sidebar-menu-item';
@@ -33,7 +33,7 @@ const STATIC_MENU_ITEMS = [
  * @example
  * <caption>Example usage of **NavigationSidebarMenu** component.</caption>
  *
- * ```typescript jsx
+ * ```typescript tsx
  * const MyComponent = () => {
  *  return (
  *    <NavigationSidebarMenu  />

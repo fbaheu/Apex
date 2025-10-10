@@ -4,7 +4,7 @@ import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
 
 import { Box, Grid } from '@apex/design-system/jsx';
 
-import { NavigationSidebar } from '~ui/features/navigation-sidebar';
+import { NavigationSidebar } from '~ui/features/navigation-view';
 
 /**
  * [DECLARATION] Route
@@ -33,6 +33,7 @@ function RootLayout() {
         <NavigationSidebar>
           <NavigationSidebar.Header />
           <NavigationSidebar.Menu />
+          <NavigationSidebar.Categories />
         </NavigationSidebar>
         <Box
           p="2"
@@ -43,11 +44,11 @@ function RootLayout() {
             h="full"
             w="full"
             shadow="xs"
+            bgColor="bg"
             borderWidth="1px"
             borderRadius="lg"
             borderStyle="solid"
-            bgColor="bg.default"
-            borderColor="border.default"
+            borderColor="border.subtle"
           >
             <Outlet />
           </Box>

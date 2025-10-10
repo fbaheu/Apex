@@ -1,7 +1,7 @@
-import { createFileRoute } from '@tanstack/react-router';
 import React from 'react';
+import { createFileRoute } from '@tanstack/react-router';
 
-// import { NoteEditor } from '~ui/features/note-editor';
+import { NoteEditor } from '~ui/features/editor-view';
 
 export const Route = createFileRoute('/$categoryId/')({
   component: RouteComponent,
@@ -10,5 +10,5 @@ export const Route = createFileRoute('/$categoryId/')({
 // PUT AN EMPTY EDITOR HERE
 
 function RouteComponent() {
-  return <React.Fragment />;
+  return <NoteEditor />;
 }

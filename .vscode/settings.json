@@ -17,7 +17,7 @@
     "editor.defaultFormatter": "vscode.json-language-features"
   },
   // Typescript
-  "typescript.tsdk": "node_modules\\typescript\\lib",
+  "typescript.tsdk": "node_modules\\.pnpm\\typescript@5.9.2\\node_modules\\typescript\\lib",
   // File watching
   "files.readonlyInclude": {
     "**/routeTree.gen.ts": true

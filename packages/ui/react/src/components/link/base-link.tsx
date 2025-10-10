@@ -7,7 +7,7 @@ import { createLink } from '@tanstack/react-router';
  * @example
  * <caption>Example usage of **Link** component.</caption>
  *
- * ```typescript jsx
+ * ```typescript tsx
  * const MyComponent = () => { *
  *  return (
  *    <Link>

@@ -1,9 +1,5 @@
 import { Tuple } from '~tuple';
 
-
-
-
-
 /**
  * INTERFACE
  */

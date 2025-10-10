@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Aside } from '@apex/react/components/styled-semantic-tag';
+import { Aside } from '@apex/react/styled-semantic-tag';
 
 /**
  * [COMPONENT] NavigationSidebarView
@@ -8,7 +8,7 @@ import { Aside } from '@apex/react/components/styled-semantic-tag';
  * @example
  * <caption>Example usage of **NavigationSidebarView** component.</caption>
  *
- * ```typescript jsx
+ * ```typescript tsx
  * const MyComponent = () => {
  *  return (
  *    <NavigationSidebarView>

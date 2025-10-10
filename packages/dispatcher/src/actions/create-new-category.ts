@@ -1,7 +1,7 @@
 import { fail, success } from '@apex/throw-less';
-import { CategorySchema, CATEGORY_COLLECTION_NAME, type Category, type BaseDocumentAttributesWithId } from '@apex/core/collections';
+import { CategorySchema, CATEGORY_COLLECTION_NAME, type Category, type WithAttributesAndId } from '@apex/core/collections';
 
-import { DispatchContext } from '~interfaces';
+import type { DispatchContext } from '~interfaces';
 
 /**
  * [ACTION] createNewCategory
@@ -14,7 +14,7 @@ import { DispatchContext } from '~interfaces';
  * ```
  *
  */
-export async function createNewCategory(ctx: DispatchContext, category: Omit<Category, keyof BaseDocumentAttributesWithId>) {
+export async function createNewCategory(ctx: DispatchContext, category: Omit<Category, keyof WithAttributesAndId>) {
   const newCategoryParsing = CategorySchema(category);
 
   if (newCategoryParsing instanceof Error) {
@@ -22,6 +22,10 @@ export async function createNewCategory(ctx: DispatchContext, category: Omit<Cat
   }
 
   const result = await ctx.db.create<Category>(CATEGORY_COLLECTION_NAME, category);
+
+  if (result.isFail()) {
+    return fail(new Error('TODO'));
+  }
 
   if (result.isSuccess()) {
     // Do some shit here
