@@ -55,7 +55,7 @@ export const textStyles = defineTextStyles({
       textTransform: 'none',
     }
   },
-  subtitle: {
+  'subtitle': {
     value: {
       fontSize: 'token(fontSizes.xl)',
       lineHeight: 'token(lineHeights.xl)',
@@ -73,7 +73,7 @@ export const textStyles = defineTextStyles({
       textTransform: 'none',
     }
   },
-  paragraph: {
+  'paragraph': {
     value: {
       fontSize: 'token(fontSizes.md)',
       lineHeight: 'token(lineHeights.md)',
@@ -91,7 +91,7 @@ export const textStyles = defineTextStyles({
       textTransform: 'none',
     }
   },
-  caption: {
+  'caption': {
     value: {
       fontSize: 'token(fontSizes.xs)',
       lineHeight: 'token(lineHeights.xs)',

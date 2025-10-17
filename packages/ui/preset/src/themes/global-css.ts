@@ -2,6 +2,7 @@ import { defineGlobalStyles } from '@pandacss/dev';
 
 export const globalCss = defineGlobalStyles({
   'html, body, #apex-root': {
+    fontSize: '15px',
     height: 'token(sizes.vh)',
     width: 'token(sizes.vw)',
     scrollBehavior: 'smooth',

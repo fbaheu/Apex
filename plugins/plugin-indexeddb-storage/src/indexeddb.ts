@@ -3,7 +3,7 @@ import Dexie, { type UpdateSpec } from 'dexie';
 import type { Collection, Storage } from '@apex/core/storage';
 import { NOTE_COLLECTION_NAME } from '@apex/core/collections/note';
 import { CATEGORY_COLLECTION_NAME } from '@apex/core/collections/category';
-import { fail, fromThrowable, success, type ThrowLess } from '@apex/throw-less';
+import { fail, fromAsyncThrowable, success, type ThrowLess } from '@apex/throw-less';
 import { generateId, isDocumentId, type WithAttributesAndId, type DocumentId } from '@apex/core/collections';
 
 /**
@@ -24,10 +24,13 @@ export default new (class Indexeddb implements Storage {
   db = new Dexie('Apex');
 
   async init() {
-    this.db.version(this.db_version).stores({
-      [CATEGORY_COLLECTION_NAME]: '&id, label',
-      [NOTE_COLLECTION_NAME]: '&id, is_favorite, archived_at, *categories, removed_at',
-    });
+    this
+      .db
+      .version(this.db_version)
+      .stores({
+        [CATEGORY_COLLECTION_NAME]: '&id, label',
+        [NOTE_COLLECTION_NAME]: '&id, is_favorite, archived_at, *categories, removed_at',
+      });
   }
 
   async create<Document extends WithAttributesAndId>(collection: Collection, document: Omit<Document, keyof WithAttributesAndId>): Promise<ThrowLess<Error, Document>> {
@@ -44,17 +47,19 @@ export default new (class Indexeddb implements Storage {
       archivedAt: undefined,
     };
 
-    const result = await fromThrowable(() => this.db.table<Document>(collection).add(documentToCreate));
+    const result = await fromAsyncThrowable(() => this.db.table<Document>(collection).add(documentToCreate));
 
+    // console.log('<<<<<<<<<<<<<<<<<<<<< ', result.unwrap());
     if (result.isSuccess()) {
-      const [, documentId] = result;
-      return this.one(collection, documentId.toString());
+      const documentId = result.unwrap();
+      return this.one(collection, String(documentId));
     }
 
     return fail<Error, Document>(new Error('TODO'));
   }
 
   async one<Document extends WithAttributesAndId>(collection: Collection, documentId: DocumentId): Promise<ThrowLess<Error, Document>> {
+    // console.log('<<<<<<<<<<<<<<<<<<<<< ', documentId);
     if (!collection) {
       return fail<Error, Document>(new Error('TODO'));
     }
@@ -63,7 +68,7 @@ export default new (class Indexeddb implements Storage {
       return fail<Error, Document>(new Error('TODO'));
     }
 
-    const result = await fromThrowable(() => this.db.table<Document>(collection).get(documentId));
+    const result = await fromAsyncThrowable(() => this.db.table<Document>(collection).get(documentId));
 
     if (result.isSuccess()) {
       const [, document] = result;
@@ -82,7 +87,7 @@ export default new (class Indexeddb implements Storage {
       return fail<Error, Array<Document>>(new Error('TODO'));
     }
 
-    const result = await fromThrowable(() => this.db.table<Document>(collection).toArray());
+    const result = await fromAsyncThrowable(() => this.db.table<Document>(collection).toArray());
 
     if (result.isSuccess()) {
       const [, documents] = result;
@@ -114,7 +119,7 @@ export default new (class Indexeddb implements Storage {
       return fail<Error, Document>(new Error('TODO'));
     }
 
-    const result = await fromThrowable(() => this.db.table<Document>(collection).update(documentId, {
+    const result = await fromAsyncThrowable(() => this.db.table<Document>(collection).update(documentId, {
       ...document,
       ...patch,
       updatedAt: new Date().toISOString(),
@@ -193,7 +198,7 @@ export default new (class Indexeddb implements Storage {
       return fail<Error, true>(new Error('TODO'));
     }
 
-    const result = await fromThrowable(() => this.db.table<Document>(collection).delete(documentId));
+    const result = await fromAsyncThrowable(() => this.db.table<Document>(collection).delete(documentId));
 
     if (result.isSuccess()) {
       return success<Error, true>(true);

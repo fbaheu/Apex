@@ -34,6 +34,9 @@ export function Dispatcher(): DispatcherBuilder {
   // Store where all actions are registered
   const actionsStore: Map<string, Fn> = new Map();
 
+  // TODO: Good for now but should be more dynamic
+  IndexeddbPlugin.init();
+
   return {
     /**
      * [UTILS] register
@@ -63,9 +66,6 @@ export function Dispatcher(): DispatcherBuilder {
      * <caption>See below ⬆️</caption>
      */
     useDispatcher() {
-      // TODO: Good for now but should be more dynamic
-      IndexeddbPlugin.init();
-
       return {
         /**
          * [UTILS] dispatch

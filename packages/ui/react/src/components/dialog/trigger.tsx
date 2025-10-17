@@ -14,7 +14,7 @@ export interface DialogTriggerProps {
  * @example
  * <caption>Example usage of **Trigger** component.</caption>
  *
- * ```typescript jsx
+ * ```typescript tsx
  * const MyComponent = () => {
  *  return (
  *    <Dialog>

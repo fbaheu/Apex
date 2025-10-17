@@ -5,6 +5,10 @@ import { Tuple } from '~tuple';
  */
 export type ThrowLess<F, R> = Fail<F, R> | Success<F, R>;
 
+export type InferSuccessType<T> = T extends ThrowLess<unknown, infer S> ? S : never;
+
+export type InferFailType<T> = T extends ThrowLess<infer F, unknown> ? F : never;
+
 /**
  * [CLASS] Success
  * @description Define a success instance to tell the right part of tuple is filled).
@@ -22,6 +26,10 @@ export type ThrowLess<F, R> = Fail<F, R> | Success<F, R>;
 export class Success<Error, Result> extends Tuple<Error | undefined, Result> {
   constructor(readonly data: Result) {
     super(undefined, data);
+  }
+
+  unwrap() {
+    return this.at(1);
   }
 
   isSuccess(): this is [undefined, Result];
@@ -56,6 +64,10 @@ export class Success<Error, Result> extends Tuple<Error | undefined, Result> {
 export class Fail<Error, Result> extends Tuple<Error, Result | undefined> {
   constructor(readonly error: Error) {
     super(error, undefined);
+  }
+
+  unwrap() {
+    return this.at(0);
   }
 
   isSuccess(): this is [undefined, Result];
@@ -101,8 +113,8 @@ export class Fail<Error, Result> extends Tuple<Error, Result | undefined> {
  */
 export function success<F, S = never>(success: S): Success<F, S>;
 export function success<F extends void = void, S = never>(success: void): Success<void, S>;
-export function success<F, S = never>(success: S): Success<F, S> {
-  return new Success(success);
+export function success<F, S = never>(success: S) {
+  return new Success<F, S>(success);
 }
 
 /**
@@ -131,9 +143,8 @@ export function success<F, S = never>(success: S): Success<F, S> {
  * }
  * ```
  */
-export function fail<F = never, S extends string = string>(error: F): Fail<F, S>;
-export function fail<F = never, S = unknown>(error: F): Fail<F, S>;
-export function fail<F = never, S extends void = void>(error: void): Fail<F, void>;
-export function fail<F = never, S = unknown>(error: F): Fail<F, S> {
-  return new Fail(error);
+export function fail<F = never, S = never>(error: F): Fail<F, S>;
+export function fail<F = never, S extends void = void>(error: void): Fail<void, S>;
+export function fail<F = never, S = never>(error: F) {
+  return new Fail<F, S>(error);
 }

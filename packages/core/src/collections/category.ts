@@ -26,5 +26,5 @@ export const CategorySchema = type({
   parent_id: type(DocumentIdSchema).optional(),
   icon: type('string').optional(),
   color: type('string.hex').optional(),
-  label: 'string'
+  label: 'string>0'
 });

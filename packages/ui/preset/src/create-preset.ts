@@ -6,6 +6,7 @@ import { breakpoints } from '~themes/breakpoints';
 
 import { tokens } from '~themes/tokens';
 import { semanticTokens } from '~themes/semantic-tokens';
+import { keyframes } from '~themes/keyframes';
 
 export function createPreset() {
   return definePreset({
@@ -26,6 +27,8 @@ export function createPreset() {
         tokens,
 
         semanticTokens,
+
+        keyframes,
       }
     }
   });

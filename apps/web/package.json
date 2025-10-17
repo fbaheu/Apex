@@ -1,0 +1,54 @@
+{
+  "name": "@apex/web",
+  "displayName": "Apex",
+  "version": "1.0.0",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fbaheu/Apex",
+    "directory": "apps/app-web"
+  },
+  "scripts": {
+    "prepare": "panda codegen",
+    "build": "vite build && tsc --noEmit",
+    "dev": "vite",
+    "lint": "eslint .",
+    "tsc": "tsc",
+    "serve": "vite preview",
+    "start": "vite"
+  },
+  "dependencies": {
+    "@apex/core": "workspace:",
+    "@apex/design-system": "workspace:",
+    "@apex/dispatcher": "workspace:",
+    "@apex/peak-editor": "workspace:",
+    "@apex/plugin-indexeddb-storage": "workspace:",
+    "@apex/preset-ui": "workspace:",
+    "@apex/react": "workspace:",
+    "@apex/throw-less": "workspace:",
+    "@headless-tree/core": "^1.4.0",
+    "@headless-tree/react": "^1.4.0",
+    "@hookform/resolvers": "^5.2.1",
+    "@hugeicons/core-free-icons": "catalog:icons",
+    "@tanstack/react-router": "catalog:tanstack",
+    "@tanstack/react-virtual": "catalog:tanstack",
+    "react": "catalog:react",
+    "react-dom": "catalog:react",
+    "react-hook-form": "^7.62.0",
+    "zustand": "^5.0.8"
+  },
+  "devDependencies": {
+    "@apex/eslint-config": "workspace:",
+    "@apex/typescript-config": "workspace:",
+    "@pandacss/dev": "catalog:preprocessor-css",
+    "@tanstack/react-router-devtools": "catalog:tanstack",
+    "@tanstack/router-plugin": "catalog:tanstack",
+    "@types/node": "catalog:types",
+    "@types/react": "catalog:types",
+    "@types/react-dom": "catalog:types",
+    "@vitejs/plugin-react": "catalog:bundling",
+    "eslint": "catalog:linter",
+    "vite": "catalog:bundling",
+    "vitest": "catalog:testing"
+  }
+}

@@ -111,3 +111,42 @@ export function fromThrowable<
     return fail(error) as R;
   }
 }
+
+/**
+ * [SHARED] fromAsyncThrowable
+ * @description Encapsulate an async function call which can throw an error by returning a Success or Fail.
+ * @example
+ * <caption>Example usage of **fromAsyncThrowable** method.</caption>
+ *
+ * ```typescript tsx
+ * const fn = async () => "simple function"
+ *
+ * const result = await fromAsyncThrowable(fn);
+ *
+ * if (result.isSuccess()) {
+ *  // Do something on success
+ * }
+ * ```
+ *
+ */
+export async function fromAsyncThrowable<
+  F extends Fn,
+  R = FnThrowLessResult<F>
+>(fn: F): Promise<R> {
+  if (!isFn(fn)) {
+    return fail(123) as R;
+  }
+
+  try {
+    const result = await fn();
+
+    if (isThrowLess(result)) {
+      return result as R;
+    }
+
+    return success(result) as R;
+  }
+  catch (error) {
+    return fail(error) as R;
+  }
+}

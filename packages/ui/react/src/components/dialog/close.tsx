@@ -2,8 +2,8 @@ import type React from 'react';
 import { Cancel01Icon } from '@hugeicons/core-free-icons';
 import { Dialog as BaseDialog } from '@base-ui-components/react/dialog';
 
-import { IconButton } from '~components/button';
 import { Icon } from '~components/icon';
+import { IconButton } from '~components/button';
 
 /**
  * INTERFACE
@@ -12,17 +12,15 @@ export type DialogCloseProps = Omit<React.ComponentProps<typeof IconButton>, 'ch
 
 /**
  * [COMPONENT] Dialog - Close
- * @description Close element for dialog content.
+ * @description Close button element for dialog content.
  * @example
  * <caption>Example usage of **Close** component.</caption>
  *
- * ```typescript jsx
+ * ```typescript tsx
  * const MyComponent = () => {
  *  return (
  *    <Dialog>
- *      <Close>
- *        <Button>Close dialog !</Button>
- *      </Close>
+ *      <CloseButton />
  *      ...
  *    </Dialog>
  *  );
@@ -30,13 +28,17 @@ export type DialogCloseProps = Omit<React.ComponentProps<typeof IconButton>, 'ch
  * ```
  *
  */
-export const Close: React.FunctionComponent<DialogCloseProps> = (props) => {
+export const CloseButton: React.FunctionComponent<DialogCloseProps> = (props) => {
   return (
     <BaseDialog.Close
       render={(
-        <IconButton {...props}>
+        <IconButton
+          size="sm"
+          variant="ghost"
+          {...props}
+        >
           <Icon
-            size="sm"
+            size="xs"
             icon={Cancel01Icon}
           />
         </IconButton>

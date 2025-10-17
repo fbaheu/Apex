@@ -1,5 +1,5 @@
 import { fail, success } from '@apex/throw-less';
-import { CategorySchema, CATEGORY_COLLECTION_NAME, type Category, type WithAttributesAndId } from '@apex/core/collections';
+import { CategorySchema, CATEGORY_COLLECTION_NAME, ParsingError, type Category, type WithAttributesAndId } from '@apex/core/collections';
 
 import type { DispatchContext } from '~interfaces';
 
@@ -17,7 +17,7 @@ import type { DispatchContext } from '~interfaces';
 export async function createNewCategory(ctx: DispatchContext, category: Omit<Category, keyof WithAttributesAndId>) {
   const newCategoryParsing = CategorySchema(category);
 
-  if (newCategoryParsing instanceof Error) {
+  if (newCategoryParsing instanceof ParsingError) {
     return fail(new Error('TODO'));
   }
 

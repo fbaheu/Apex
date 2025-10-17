@@ -7,8 +7,7 @@ import { zIndex } from '~themes/tokens/z-index';
 import { opacity } from '~themes/tokens/opacity';
 import { spacing } from '~themes/tokens/spacing';
 
-import { easings } from '~themes/tokens/easings';
-import { durations } from '~themes/tokens/durations';
+import { easings, durations, animations } from '~themes/tokens/animation';
 
 import { neutralTokensColor } from '~colors/neutral';
 import { baseColors } from '~themes/tokens/base-colors';
@@ -31,7 +30,7 @@ export const tokens = defineTokens({
 
   easings,
   durations,
-  animations: {},
+  animations,
 
   colors: {
     ...baseColors,

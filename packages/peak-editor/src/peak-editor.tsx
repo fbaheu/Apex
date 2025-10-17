@@ -22,8 +22,8 @@ export const DEFAULT_PARAGRAPH: Array<Descendant> = [
  */
 export interface PeakEditorProps {
   editor?: Editor;
-  defaultEditorValue?: Array<Descendant>;
-  onEditorChange(change: Array<Descendant>): void;
+  defaultEditorValue?: Array<unknown>;
+  onEditorChange(change: Array<unknown>): void;
 }
 
 /**
@@ -58,7 +58,7 @@ export const PeakEditor: React.FunctionComponent<PeakEditorProps> = ({
   return (
     <Slate
       editor={withEditor}
-      initialValue={defaultEditorValue}
+      initialValue={defaultEditorValue as Array<Descendant>}
       onChange={onEditorChange}
     >
       <Editable

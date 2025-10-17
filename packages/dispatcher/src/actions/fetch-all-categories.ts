@@ -23,7 +23,7 @@ export async function fetchAllCategories(ctx: DispatchContext) {
 
   if (result.isSuccess()) {
     // Do some shit here
-    return success(result.at(1));
+    return success(result.unwrap());
   }
 
   return result;

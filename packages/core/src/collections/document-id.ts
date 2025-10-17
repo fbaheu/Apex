@@ -47,9 +47,13 @@ export function generateId(): string {
 export function isDocumentId(
   documentId: unknown,
 ): documentId is DocumentId {
+  if (!documentId) {
+    return false;
+  }
+
   const out = DocumentIdSchema(documentId);
 
-  if (out instanceof Error) {
+  if (out instanceof type.errors) {
     return false;
   }
 
