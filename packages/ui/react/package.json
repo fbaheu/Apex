@@ -32,10 +32,10 @@
     "@hugeicons/react": "catalog:icons"
   },
   "devDependencies": {
-    "@apex/eslint-config": "workspace:",
-    "@apex/typescript-config": "workspace:",
     "@apex/design-system": "workspace:",
+    "@apex/eslint-config": "workspace:",
     "@apex/preset-ui": "workspace:",
+    "@apex/typescript-config": "workspace:",
     "@hugeicons/core-free-icons": "catalog:icons",
     "@pandacss/dev": "catalog:preprocessor-css",
     "@types/node": "catalog:types",

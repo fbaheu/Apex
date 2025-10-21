@@ -20,7 +20,7 @@
   "dependencies": {
     "@apex/core": "workspace:",
     "@apex/throw-less": "workspace:",
-    "dexie": "^4.2.0"
+    "dexie": "^4.2.1"
   },
   "devDependencies": {
     "@apex/eslint-config": "workspace:",

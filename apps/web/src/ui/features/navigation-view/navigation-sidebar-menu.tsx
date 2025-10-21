@@ -1,8 +1,9 @@
 import React from 'react';
-import { Files01Icon, FavouriteIcon, Delete02Icon } from '@hugeicons/core-free-icons';
+import { NoteIcon, FavouriteIcon, Delete02Icon } from '@hugeicons/core-free-icons';
 
 import { For } from '@apex/react/for';
-import { VStack } from '@apex/design-system/jsx';
+import { Menu } from '@apex/react/menu';
+import { STATIC_CATEGORY } from '@apex/core/collections/index';
 
 import { NavigationSidebarMenuItem } from './navigation-sidebar-menu-item';
 
@@ -11,19 +12,19 @@ import { NavigationSidebarMenuItem } from './navigation-sidebar-menu-item';
  */
 const STATIC_MENU_ITEMS = [
   {
-    icon: Files01Icon,
+    icon: NoteIcon,
     label: 'All Notes',
-    category: 'all-notes',
+    category: STATIC_CATEGORY.ALL_NOTES,
   },
   {
     icon: FavouriteIcon,
     label: 'Favorites',
-    category: 'favorites',
+    category: STATIC_CATEGORY.FAVORITES,
   },
   {
     icon: Delete02Icon,
     label: 'Trash',
-    category: 'trash'
+    category: STATIC_CATEGORY.TRASH
   }
 ];
 
@@ -44,11 +45,8 @@ const STATIC_MENU_ITEMS = [
  */
 export const NavigationSidebarMenu: React.FunctionComponent = () => {
   return (
-    <VStack
+    <Menu
       px="3"
-      gap="1"
-      alignItems="start"
-      justifyContent="start"
       id="navigation-sidebar-menu"
     >
       <For each={STATIC_MENU_ITEMS}>
@@ -61,6 +59,6 @@ export const NavigationSidebarMenu: React.FunctionComponent = () => {
           />
         )}
       </For>
-    </VStack>
+    </Menu>
   );
 };

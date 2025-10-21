@@ -38,6 +38,7 @@ export const CreateCategoryForm: React.FunctionComponent<CategoryCreationFormPro
 
         if (creation.isSuccess()) {
           await categoryStore.getState().refresh();
+          // TODO: Redirect to created category
           props?.onCategoryCreationEnd(creation.unwrap());
         }
       },

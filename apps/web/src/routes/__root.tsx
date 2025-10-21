@@ -18,6 +18,7 @@ export const Route = createRootRoute({
           gap="0"
           h="full"
           w="full"
+          overflow="hidden"
           bgColor="bg.canvas"
           gridTemplateColumns="min-content 1fr"
         >
@@ -27,9 +28,11 @@ export const Route = createRootRoute({
             <NavigationSidebar.Categories />
           </NavigationSidebar>
           <Box
-            py="2"
+            py="3"
+            pr="3"
             h="full"
             w="full"
+            overflow="hidden"
           >
             <Box
               h="full"

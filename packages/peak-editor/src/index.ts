@@ -1,1 +1,1 @@
-export { PeakEditor } from './peak-editor';
+export { PeakEditor, DEFAULT_PARAGRAPH } from './peak-editor';

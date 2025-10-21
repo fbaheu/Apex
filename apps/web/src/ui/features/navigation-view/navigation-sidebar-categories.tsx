@@ -2,6 +2,7 @@ import React from 'react';
 import { CircleIcon } from '@hugeicons/core-free-icons';
 
 import { For } from '@apex/react/for';
+import { Menu } from '@apex/react/menu';
 import { Span } from '@apex/react/styled-semantic-tag';
 import { HStack, Grid, VStack } from '@apex/design-system/jsx';
 
@@ -35,9 +36,7 @@ export const NavigationSidebarCategories: React.FunctionComponent = () => {
       gridTemplateRows="min-content auto"
     >
       <HStack
-        py="3"
-        pl="3"
-        pr="4"
+        px="3"
         gap="1"
         alignItems="center"
         justifyContent="space-between"
@@ -50,16 +49,15 @@ export const NavigationSidebarCategories: React.FunctionComponent = () => {
         >
           Categories
         </Span>
-        <HStack gap="0.5">
+        <HStack gap="1">
           <CreateCategoryButton />
           <CategoryListDisplayButton />
         </HStack>
       </HStack>
-      <VStack
-        h="full"
+      <Menu
         px="3"
-        gap="1"
         overflowY="auto"
+        id="navigation-sidebar-categories"
       >
         <For each={categories}>
           {({ id, label }) => (
@@ -71,7 +69,7 @@ export const NavigationSidebarCategories: React.FunctionComponent = () => {
             />
           )}
         </For>
-      </VStack>
+      </Menu>
     </Grid>
   );
 };

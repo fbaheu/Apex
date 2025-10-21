@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from '@apex/react/link';
 import { Icon, type IconSVGElement } from '@apex/react/icon';
 import { Span } from '@apex/react/styled-semantic-tag';
+import { Menu } from '@apex/react/menu';
 
 /**
  * INTERFACE
@@ -31,32 +32,15 @@ export interface NavigationSidebarMenuItemProps {
 export const NavigationSidebarMenuItem: React.FunctionComponent<Readonly<NavigationSidebarMenuItemProps>> = ({ icon, label, category }) => {
   return (
     <Link
-      px="2"
-      gap="3"
-      py="2.5"
       w="full"
-      fontWeight="normal"
-      color="text.tertiary"
-      borderRadius="md"
-      alignItems="center"
-      flexDirection="row"
-      display="inline-flex"
-      justifyContent="start"
+      activeOptions={{ exact: true }}
       to="/$categoryId/$noteId"
       id="navigation-sidebar-menu-item"
       preload={false}
-      activeProps={{ 'data-active': 'true' }}
-      _hover={{
-        bgColor: 'bg.subtle',
-      }}
-      _active={{
-        bgColor: 'bg.subtle',
-        color: 'text',
-      }}
       params={({ noteId }) => ({ categoryId: category, noteId: noteId ?? '' })}
     >
       {({ isActive }) => (
-        <React.Fragment>
+        <Menu.Item {...(isActive && { 'data-link-active': 'true' })}>
           <Span color="text.placeholder">
             <Icon
               size="sm"
@@ -64,7 +48,7 @@ export const NavigationSidebarMenuItem: React.FunctionComponent<Readonly<Navigat
             />
           </Span>
           {label}
-        </React.Fragment>
+        </Menu.Item>
       )}
     </Link>
   );

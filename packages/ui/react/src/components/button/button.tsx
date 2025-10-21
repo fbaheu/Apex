@@ -37,6 +37,7 @@ export const Button = styled('button' as const, {
     userSelect: 'none',
     verticalAlign: 'middle',
     zIndex: 'base',
+    willChange: 'transform',
 
     _open: {
       outline: '',

@@ -6,32 +6,32 @@ packages:
 
 catalogs:
   bundling:
-    '@vitejs/plugin-react': ^5.0.2
+    '@vitejs/plugin-react': ^5.0.4
     tsdown: ^0.14.2
-    vite: ^7.1.3
+    vite: ^7.1.11
   icons:
-    '@hugeicons/core-free-icons': ^1.0.16
-    '@hugeicons/react': ^1.0.5
+    '@hugeicons/core-free-icons': ^1.2.1
+    '@hugeicons/react': ^1.1.1
   linter:
-    '@stylistic/eslint-plugin': ^5.3.1
-    '@typescript-eslint/parser': ^8.41.0
-    eslint: ^9.34.0
+    '@stylistic/eslint-plugin': ^5.5.0
+    '@typescript-eslint/parser': ^8.46.1
+    eslint: ^9.38.0
   preprocessor-css:
-    '@pandacss/dev': ^1.2.0
+    '@pandacss/dev': ^1.4.3
   react:
-    react: ^19.1.1
-    react-dom: ^19.1.1
+    react: ^19.2.0
+    react-dom: ^19.2.0
   tanstack:
-    '@tanstack/react-router': ^1.131.31
-    '@tanstack/react-router-devtools': ^1.131.31
+    '@tanstack/react-router': ^1.133.15
+    '@tanstack/react-router-devtools': ^1.133.15
     '@tanstack/react-virtual': ^3.13.12
-    '@tanstack/router-plugin': ^1.131.31
+    '@tanstack/router-plugin': ^1.133.15
   testing:
     vitest: ^3.2.4
   types:
-    '@types/node': ^24.3.0
-    '@types/react': ^19.1.12
-    '@types/react-dom': ^19.1.9
+    '@types/node': ^24.8.1
+    '@types/react': ^19.2.2
+    '@types/react-dom': ^19.2.2
 
 onlyBuiltDependencies:
   - esbuild

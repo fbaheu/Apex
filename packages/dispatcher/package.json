@@ -29,5 +29,8 @@
     "@types/node": "catalog:types",
     "eslint": "catalog:linter",
     "tsdown": "catalog:bundling"
+  },
+  "peerDependencies": {
+    "@apex/peak-editor": "workspace:"
   }
 }

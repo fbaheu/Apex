@@ -10,6 +10,12 @@ import type { WithAttributesAndId } from './base-document-attributes';
  */
 export const CATEGORY_COLLECTION_NAME = 'category';
 
+export const STATIC_CATEGORY = {
+  ALL_NOTES: 'all-notes',
+  FAVORITES: 'favorites',
+  TRASH: 'trash'
+} as const;
+
 /**
  * [INTERFACE]
  */

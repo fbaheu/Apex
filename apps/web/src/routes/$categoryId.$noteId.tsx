@@ -1,9 +1,11 @@
-import { createFileRoute, redirect } from '@tanstack/react-router';
+import { createFileRoute } from '@tanstack/react-router';
 
-import { isDocumentId } from '@apex/core/collections';
 import { globalDispatcher } from '@apex/dispatcher';
+import { isDocumentId, STATIC_CATEGORY } from '@apex/core/collections';
 
 import { Note } from '~ui/features/editor-view';
+import { redirectToCategory } from '~ui/utils/navigation';
+import { Box } from '@apex/design-system/jsx';
 
 export const Route = createFileRoute('/$categoryId/$noteId')({
   params: {
@@ -21,16 +23,24 @@ export const Route = createFileRoute('/$categoryId/$noteId')({
     const result = await globalDispatcher.dispatch('fetch-note-detail', noteId);
 
     if (result.isSuccess()) {
-      return result.at(1);
+      return result.unwrap();
     }
   },
   onError(error) {
-    if (error?.routerCode === 'PARSE_PARAMS')
-      throw redirect({ to: '/$categoryId', params: { categoryId: 'all-notes' } });
+    if (error?.routerCode === 'PARSE_PARAMS') {
+      throw redirectToCategory(STATIC_CATEGORY.ALL_NOTES);
+    }
   },
   component() {
     const note = Route.useLoaderData();
 
-    return <Note />;
+    return (
+      <Box
+        margin="0 auto"
+        width="clamp(45ch, 100%, 95ch)"
+      >
+        <Note />
+      </Box>
+    );
   },
 });

@@ -28,8 +28,8 @@
   },
   "dependencies": {
     "@apex/throw-less": "workspace:",
-    "arktype": "^2.1.20",
-    "nanoid": "^5.1.5"
+    "arktype": "^2.1.23",
+    "nanoid": "^5.1.6"
   },
   "devDependencies": {
     "@apex/eslint-config": "workspace:",

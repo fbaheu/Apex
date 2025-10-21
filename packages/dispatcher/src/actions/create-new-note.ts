@@ -1,4 +1,5 @@
 import { fail } from '@apex/throw-less';
+import { DEFAULT_PARAGRAPH } from '@apex/peak-editor';
 import { NoteSchema, NOTE_COLLECTION_NAME, ParsingError, type Note, type WithAttributesAndId } from '@apex/core/collections';
 
 import type { DispatchContext } from '~interfaces';
@@ -14,7 +15,7 @@ import type { DispatchContext } from '~interfaces';
  * ```
  *
  */
-export async function createNewNote(ctx: DispatchContext, content: Note['content'] = []) {
+export async function createNewNote(ctx: DispatchContext, content: Note['content'] = DEFAULT_PARAGRAPH) {
   const newNoteParsing = NoteSchema.partial()({ content });
 
   if (newNoteParsing instanceof ParsingError) {
