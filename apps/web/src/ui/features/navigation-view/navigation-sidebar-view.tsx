@@ -22,6 +22,7 @@ import { Aside } from '@apex/react/styled-semantic-tag';
 export const NavigationSidebarView: React.FunctionComponent<Readonly<React.PropsWithChildren>> = ({ children }) => {
   return (
     <Aside
+      py="3"
       w="256px" // TO CHANGE
       gap="6"
       display="grid"

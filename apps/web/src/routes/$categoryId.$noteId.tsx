@@ -22,11 +22,16 @@ export const Route = createFileRoute('/$categoryId/$noteId')({
 
     const result = await globalDispatcher.dispatch('fetch-note-detail', noteId);
 
+    if (result.isFail()) {
+      throw Error(`"${noteId}" is not a valid note id.`);
+    }
+
     if (result.isSuccess()) {
       return result.unwrap();
     }
   },
   onError(error) {
+    console.error('error > ', error);
     if (error?.routerCode === 'PARSE_PARAMS') {
       throw redirectToCategory(STATIC_CATEGORY.ALL_NOTES);
     }
@@ -36,8 +41,8 @@ export const Route = createFileRoute('/$categoryId/$noteId')({
 
     return (
       <Box
-        margin="0 auto"
-        width="clamp(45ch, 100%, 95ch)"
+        mt="10"
+        mx="clamp(token(spacing.12), calc(0.5rem + 4.5vw), token(spacing.20))"
       >
         <Note />
       </Box>

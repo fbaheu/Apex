@@ -85,6 +85,7 @@ export const Route = createFileRoute('/$categoryId')({
           <Box
             h="full"
             w="full"
+            overflow="hidden"
           >
             <Outlet />
           </Box>

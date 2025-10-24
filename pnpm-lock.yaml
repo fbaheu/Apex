@@ -249,6 +249,9 @@ importers:
 
   packages/peak-editor:
     dependencies:
+      '@apex/design-system':
+        specifier: 'workspace:'
+        version: link:../ui/design-system
       '@apex/react':
         specifier: 'workspace:'
         version: link:../ui/react

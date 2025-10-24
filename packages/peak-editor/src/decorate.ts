@@ -1,4 +1,4 @@
-import { Editor, Range, type DecoratedRange, type NodeEntry } from 'slate';
+import { Editor, Range, Element, type DecoratedRange, type NodeEntry, range } from 'slate';
 
 /**
  * [EDITOR] decorate
@@ -8,6 +8,26 @@ import { Editor, Range, type DecoratedRange, type NodeEntry } from 'slate';
  */
 export function decorate(editor: Editor) {
   return ([node, path]: NodeEntry) => {
+    const ranges = [];
+
+    void editor.children.length;
+
+    if (
+      path.length === 1
+      && Element.isElement(node)
+      && Editor.isBlock(editor, node)
+      && Editor.string(editor, [path[0] ?? 0]) === ''
+      && node.type === 'heading'
+      && node.level === 'title'
+    ) {
+      ranges.push({
+        anchor: { path: [...path, 0, 0], offset: 0 },
+        focus: { path: [...path, 0, 0], offset: 0 },
+        is_title: true,
+        is_placeholder: true,
+      });
+    }
+
     if (editor.selection) {
       if (
         !Editor.isEditor(node)
@@ -15,15 +35,13 @@ export function decorate(editor: Editor) {
         && Range.includes(editor.selection, path)
         && Range.isCollapsed(editor.selection)
       ) {
-        return [
-          {
-            ...editor.selection,
-            placeholder: true,
-          },
-        ];
+        ranges.push({
+          ...editor.selection,
+          is_placeholder: true,
+        });
       }
     }
 
-    return [];
+    return ranges;
   };
 }

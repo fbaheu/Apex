@@ -1,10 +1,10 @@
 import React from 'react';
+import { useMatchRoute } from '@tanstack/react-router';
 
 import { Menu } from '@apex/react/menu';
 import { Link } from '@apex/react/link';
 
 import type { Note } from '@apex/core/collections/note';
-import { STATIC_CATEGORY } from '@apex/core/collections/category';
 
 /**
  * [COMPONENT] NoteListItem
@@ -22,19 +22,22 @@ import { STATIC_CATEGORY } from '@apex/core/collections/category';
  *
  */
 export const NoteListItem: React.FunctionComponent<Note> = ({ id, content }) => {
+  const match = useMatchRoute();
+
   return (
     <Link
       w="full"
       to="/$categoryId/$noteId"
       id="navigation-sidebar-menu-item"
-      preload={false}
       params={prev => ({ ...prev, noteId: id })}
     >
-      {({ isActive }) => (
-        <Menu.Item {...(isActive && { 'data-link-active': 'true' })}>
-          {JSON.stringify(content)}
-        </Menu.Item>
-      )}
+      <Menu.Item
+        maxH="200px"
+        overflow="hidden"
+        {...(match({ to: '/$categoryId/$noteId', fuzzy: true, params: { noteId: id } }) && { 'data-link-active': 'true' })}
+      >
+        {JSON.stringify(content)}
+      </Menu.Item>
     </Link>
   );
 };

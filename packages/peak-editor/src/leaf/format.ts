@@ -11,8 +11,9 @@ export const Format = {
   Sub_Script: 'subscript',
   Super_Script: 'superscript',
   Inline_Code: 'inline_code',
-  // 'placeholder' is only meant for internal purpose.
-  Placeholder: 'placeholder'
+  // 'placeholder' and 'Title' are only meant for internal purpose.
+  Placeholder: 'is_placeholder',
+  Title: 'is_title'
 } as const satisfies Record<string, string>;
 
 /**

@@ -3,33 +3,6 @@ import { defineTextStyles } from '@pandacss/dev';
 export const textStyles = defineTextStyles({
   'heading-1': {
     value: {
-      fontSize: 'token(fontSizes.7xl)',
-      lineHeight: 'token(lineHeights.7xl)',
-      letterSpacing: 'token(letterSpacings.tighter)',
-      textDecoration: 'none',
-      textTransform: 'none',
-    }
-  },
-  'heading-2': {
-    value: {
-      fontSize: 'token(fontSizes.6xl)',
-      lineHeight: 'token(lineHeights.6xl)',
-      letterSpacing: 'token(letterSpacings.tighter)',
-      textDecoration: 'none',
-      textTransform: 'none',
-    }
-  },
-  'heading-3': {
-    value: {
-      fontSize: 'token(fontSizes.5xl)',
-      lineHeight: 'token(lineHeights.5xl)',
-      letterSpacing: 'token(letterSpacings.tight)',
-      textDecoration: 'none',
-      textTransform: 'none',
-    }
-  },
-  'heading-4': {
-    value: {
       fontSize: 'token(fontSizes.4xl)',
       lineHeight: 'token(lineHeights.4xl)',
       letterSpacing: 'token(letterSpacings.tight)',
@@ -37,7 +10,7 @@ export const textStyles = defineTextStyles({
       textTransform: 'none',
     }
   },
-  'heading-5': {
+  'heading-2': {
     value: {
       fontSize: 'token(fontSizes.3xl)',
       lineHeight: 'token(lineHeights.3xl)',
@@ -46,10 +19,19 @@ export const textStyles = defineTextStyles({
       textTransform: 'none',
     }
   },
-  'heading-6': {
+  'heading-3': {
     value: {
       fontSize: 'token(fontSizes.2xl)',
       lineHeight: 'token(lineHeights.2xl)',
+      letterSpacing: 'token(letterSpacings.notmal)',
+      textDecoration: 'none',
+      textTransform: 'none',
+    }
+  },
+  'heading-4': {
+    value: {
+      fontSize: 'token(fontSizes.xl)',
+      lineHeight: 'token(lineHeights.xl)',
       letterSpacing: 'token(letterSpacings.notmal)',
       textDecoration: 'none',
       textTransform: 'none',

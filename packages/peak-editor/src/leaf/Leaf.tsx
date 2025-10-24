@@ -1,7 +1,8 @@
 import type { JSX } from 'react';
-import type { BaseText } from 'slate';
-import { DefaultLeaf, type RenderLeafProps } from 'slate-react';
+import { Editor, Element, type BaseText } from 'slate';
+import { DefaultLeaf, useSlateStatic, type RenderLeafProps } from 'slate-react';
 
+import { Show } from '@apex/react/show';
 import { InlineCode } from '@apex/react/inline-code';
 import { Span } from '@apex/react/styled-semantic-tag';
 
@@ -19,6 +20,8 @@ export type CustomLeafElement = Partial<Record<Format, boolean>> & BaseText;
  * <caption>Not needed.</caption>
  */
 export const Leaf = (props: RenderLeafProps): JSX.Element => {
+  const editor = useSlateStatic();
+
   if (props.leaf.bold) {
     props.children = <strong>{props.children}</strong>;
   }
@@ -47,7 +50,7 @@ export const Leaf = (props: RenderLeafProps): JSX.Element => {
     props.children = <sup>{props.children}</sup>;
   }
 
-  if (props.leaf.placeholder) {
+  if (props.leaf.is_placeholder) {
     return (
       <>
         <DefaultLeaf {...props} />
@@ -56,17 +59,29 @@ export const Leaf = (props: RenderLeafProps): JSX.Element => {
           opacity="30"
           userSelect="none"
           position="absolute"
+          pointerEvents="none"
           contentEditable={false}
         >
-          Type
-          {' '}
-          <InlineCode children="/" />
-          {' '}
-          to open menu
+          <Show
+            when={props.leaf.is_title}
+            fallback={(
+              <>
+                Type
+                {' '}
+                <InlineCode children="/" />
+                {' '}
+                to open menu
+              </>
+            )}
+          >
+            Note Title
+          </Show>
         </Span>
       </>
     );
   }
 
-  return <DefaultLeaf {...props} />;
+  return (
+    <DefaultLeaf {...props} />
+  );
 };

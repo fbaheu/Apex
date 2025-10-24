@@ -10,7 +10,7 @@ import { categoryStore } from '~ui/stores/category-store';
 import { CreateCategoryButton } from '~ui/features/category-view/create';
 import { CategoryListDisplayButton } from '~ui/features/category-view/list';
 
-import { NavigationSidebarMenuItem } from './navigation-sidebar-menu-item';
+import { CategoryItem } from '~ui/features/category-view';
 
 /**
  * [COMPONENT] NavigationSidebarCategories
@@ -60,12 +60,11 @@ export const NavigationSidebarCategories: React.FunctionComponent = () => {
         id="navigation-sidebar-categories"
       >
         <For each={categories}>
-          {({ id, label }) => (
-            <NavigationSidebarMenuItem
+          {({ id, ...rest }) => (
+            <CategoryItem
               key={id}
-              category={id}
-              label={label}
-              icon={CircleIcon}
+              id={id}
+              {...rest}
             />
           )}
         </For>
